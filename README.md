@@ -1,0 +1,2 @@
+# philosophers
+Dinning pholosophers problem

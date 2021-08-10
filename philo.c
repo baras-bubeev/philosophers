@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpowder <mpowder@student.21-school.ru>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/11 05:20:36 by mpowder           #+#    #+#             */
+/*   Updated: 2021/08/11 05:37:01 by mpowder          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 void	*dinner(void *philo)
@@ -35,7 +47,6 @@ void	monitoring(t_parse *arg, t_philosopher **philo)
 		i = -1;
 		while (++i < arg->number)
 		{
-			
 			if (ft_gettime() - arg->tstart - philo[i]->last_eat > arg->tdie)
 			{
 				ft_print(philo[i]->id, DIE, arg);
@@ -53,7 +64,7 @@ void	monitoring(t_parse *arg, t_philosopher **philo)
 
 void	thread_init(t_parse *arg, t_philosopher **philo)
 {
-	int	i;
+	int				i;
 	t_philosopher	*ph;
 
 	i = -1;

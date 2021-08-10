@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpowder <mpowder@student.21-school.ru>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/11 05:19:15 by baras             #+#    #+#             */
+/*   Updated: 2021/08/11 05:32:40 by mpowder          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 int	philo_init(t_philosopher ***philo, t_parse *arg)
@@ -31,10 +43,10 @@ int	philo_init(t_philosopher ***philo, t_parse *arg)
 
 int	check_var(t_parse *arg)
 {
-	if (arg->number == 0 || arg->tdie == 0 || arg->tsleep == 0 ||
-	arg->teat == 0 || arg->must_eat == 0)
+	if (arg->number == 0 || arg->tdie == 0 || arg->tsleep == 0
+		|| arg->teat == 0 || arg->must_eat == 0)
 	{
-		write(2, INVALID_ARGS);
+		write(2, INVALID_ARGS, 26);
 		return (1);
 	}
 	return (0);
@@ -67,14 +79,14 @@ int	var_init(int ac, char **av, t_parse *arg)
 	return (0);
 }
 
-int check_args(int ac, char **av)
+int	check_args(int ac, char **av)
 {
 	int	i;
 	int	j;
 
 	if (ac != 5 && ac != 6)
 	{
-		write(2, INCORRECT_ARG_NUM);
+		write(2, INCORRECT_ARG_NUM, 38);
 		return (1);
 	}
 	i = 0;
@@ -85,7 +97,7 @@ int check_args(int ac, char **av)
 		{
 			if (av[i][j] < '0' || av[i][j] > '9')
 			{
-				write(2, INVALID_ARGS);
+				write(2, INVALID_ARGS, 26);
 				return (1);
 			}
 		}
@@ -102,7 +114,7 @@ int	main(int ac, char **av)
 		return (1);
 	if (var_init(ac, av, &arg) || philo_init(&philo, &arg))
 	{
-		write(2, MALLOC_ERROR);
+		write(2, MALLOC_ERROR, 41);
 		return (1);
 	}
 	if (check_var(&arg))
